@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GST Calculator</title>
+    <style>
+        body { background-color: #333; color: white; font-family: Arial; text-align: center; padding: 40px; }
+        input, button { font-size: 18px; margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>GST Calculator</h1>
+    <input type="number" id="amount" placeholder="Amount"><br>
+    <input type="number" id="gst" placeholder="GST %"><br>
+    <button onclick="addGST()">Add GST</button>
+    <button onclick="removeGST()">Remove GST</button>
+    <h2 id="result">Result: ₹0</h2>
+    <script>
+        function addGST() {
+            let amt = parseFloat(document.getElementById("amount").value);
+            let gst = parseFloat(document.getElementById("gst").value);
+            let total = amt + (amt * gst / 100);
+            document.getElementById("result").innerText = "Total with GST: ₹" + total.toFixed(2);
+        }
+        function removeGST() {
+            let total = parseFloat(document.getElementById("amount").value);
+            let gst = parseFloat(document.getElementById("gst").value);
+            let base = total / (1 + gst / 100);
+            document.getElementById("result").innerText = "Base Price: ₹" + base.toFixed(2);
+        }
+    </script>
+</body>
+</html>

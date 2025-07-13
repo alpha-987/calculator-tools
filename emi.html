@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMI Calculator</title>
+    <style>
+        body { background: #1e1e1e; color: white; font-family: Arial; text-align: center; padding-top: 40px; }
+        input, button { font-size: 20px; margin: 10px; padding: 10px; width: 80%; max-width: 300px; }
+    </style>
+</head>
+<body>
+    <h1>EMI Calculator</h1>
+    <input type="number" id="principal" placeholder="Loan Amount (₹)"><br>
+    <input type="number" id="rate" placeholder="Interest Rate (%)"><br>
+    <input type="number" id="time" placeholder="Time (Years)"><br>
+    <button onclick="calculateEMI()">Calculate EMI</button>
+    <h2 id="emi">Monthly EMI: ₹0</h2>
+    <script>
+        function calculateEMI() {
+            let P = parseFloat(document.getElementById("principal").value);
+            let R = parseFloat(document.getElementById("rate").value) / 1200;
+            let N = parseFloat(document.getElementById("time").value) * 12;
+            let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
+            document.getElementById("emi").innerText = "Monthly EMI: ₹" + EMI.toFixed(2);
+        }
+    </script>
+</body>
+</html>

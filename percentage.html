@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Percentage Calculator</title>
+    <style>
+        body { background-color: #111; color: white; font-family: Arial; text-align: center; padding: 40px; }
+        input, button { font-size: 18px; margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Percentage Calculator</h1>
+    <input type="number" id="obtained" placeholder="Marks Obtained"><br>
+    <input type="number" id="total" placeholder="Total Marks"><br>
+    <button onclick="calcPercentage()">Calculate</button>
+    <h2 id="percent">Percentage: </h2>
+    <script>
+        function calcPercentage() {
+            let got = parseFloat(document.getElementById("obtained").value);
+            let total = parseFloat(document.getElementById("total").value);
+            let percent = (got / total) * 100;
+            document.getElementById("percent").innerText = "Percentage: " + percent.toFixed(2) + "%";
+        }
+    </script>
+</body>
+</html>

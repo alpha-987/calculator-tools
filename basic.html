@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <style>
+        body { background-color: #222; color: white; font-family: Arial; text-align: center; padding-top: 40px; }
+        input, button { font-size: 20px; margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Basic Calculator</h1>
+    <input type="number" id="num1" placeholder="First number"><br>
+    <input type="number" id="num2" placeholder="Second number"><br>
+    <button onclick="calc('+')">+</button>
+    <button onclick="calc('-')">−</button>
+    <button onclick="calc('*')">×</button>
+    <button onclick="calc('/')">÷</button>
+    <h2 id="result">Result: </h2>
+    <script>
+        function calc(op) {
+            let a = parseFloat(document.getElementById("num1").value);
+            let b = parseFloat(document.getElementById("num2").value);
+            let res = (op === '+') ? a + b : (op === '-') ? a - b : (op === '*') ? a * b : (b !== 0 ? a / b : '∞');
+            document.getElementById("result").innerText = "Result: " + res;
+        }
+    </script>
+</body>
+</html>
