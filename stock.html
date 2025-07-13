@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Market Profit/Loss Calculator</title>
+</head>
+<body>
+  <h2>📈 Stock Profit / Loss Calculator</h2>
+
+  <label>Buy Price (₹):</label><br>
+  <input type="number" id="buy" /><br><br>
+
+  <label>Sell Price (₹):</label><br>
+  <input type="number" id="sell" /><br><br>
+
+  <label>Quantity:</label><br>
+  <input type="number" id="qty" /><br><br>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <h3 id="result"></h3>
+
+  <script>
+    function calculate() {
+      let buy = parseFloat(document.getElementById('buy').value);
+      let sell = parseFloat(document.getElementById('sell').value);
+      let qty = parseInt(document.getElementById('qty').value);
+
+      let totalBuy = buy * qty;
+      let totalSell = sell * qty;
+      let profit = totalSell - totalBuy;
+
+      let resultText = profit > 0 
+        ? "✅ Profit: ₹" + profit 
+        : profit < 0 
+          ? "🔻 Loss: ₹" + Math.abs(profit) 
+          : "No Profit, No Loss";
+
+      document.getElementById('result').innerText = resultText;
+    }
+  </script>
+</body>
+</html>
